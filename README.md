@@ -8,7 +8,7 @@
 
 ---
 
-## 40. Descripción del problema escogido
+## Descripción del problema escogido
 
 Este proyecto realiza un análisis 360° sobre dos fenómenos del sistema de salud colombiano y la percepción ciudadana sobre los servicios públicos. En los Bloques 1 y 2 se trabajó con los **Registros Individuales de Prestación de Servicios (RIPS)**, dataset del Ministerio de Salud que documenta cada atención médica en Colombia (tipo de servicio, diagnóstico, entidad prestadora, municipio y valor de la consulta), permitiendo identificar patrones de uso del sistema de salud, segmentar tipos de atención y predecir la modalidad del servicio.
 
@@ -16,7 +16,7 @@ En el Bloque 3 se incorporó un corpus de **PQRS ciudadanas** (Peticiones, Queja
 
 ---
 
-## 41. Datasets utilizados
+## Datasets utilizados
 
 | Bloque | Dataset | Fuente | Descripción |
 |--------|---------|--------|-------------|
@@ -25,7 +25,7 @@ En el Bloque 3 se incorporó un corpus de **PQRS ciudadanas** (Peticiones, Queja
 
 ---
 
-## 42. Cómo ejecutar los notebooks
+## Cómo ejecutar los notebooks
 
 ### Requisitos
 - Python 3.10+
@@ -41,7 +41,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 pip install jupyter notebook
 ```
 
-### Con Docker (recomendado)
+### Con Docker 
 ```bash
 # Clonar el repositorio
 git clone https://github.com/[usuario]/proyecto_final_[apellido]_[nombre].git
@@ -62,7 +62,7 @@ docker-compose up
 
 ---
 
-## 43. Conclusión integrada
+## Conclusión integrada
 
 El análisis de los RIPS reveló patrones sistemáticos en el acceso al sistema de salud colombiano: la consulta externa concentra más del 60% de las atenciones, con marcadas diferencias regionales entre municipios. El modelo de Machine Learning (Bloque 2) permitió segmentar los tipos de atención mediante K-Means y predecir la modalidad del servicio con un F1 superior a 0.85 usando Random Forest, identificando que el diagnóstico CIE-10 y el municipio son las variables de mayor importancia predictiva. El Bloque 3 añadió la dimensión ciudadana: el análisis de PQRS mostró que las quejas negativas contienen vocabulario específico de urgencia e indignación, y que el modelo RoBERTuito supera al enfoque TF-IDF en casos con sarcasmo o negación, alcanzando una accuracy 8-12% superior. Juntos, los tres bloques construyen una visión complementaria: los datos estructurados de RIPS describen *qué* pasa en el sistema de salud, mientras que las PQRS revelan *cómo lo perciben* los ciudadanos, permitiendo conectar la eficiencia operativa con la satisfacción real del usuario.
 
