@@ -3,9 +3,8 @@
 
 ---
 
-## 39. Nombre completo del estudiante
-<!-- Reemplaza con tu nombre completo -->
-**[NOMBRE COMPLETO DEL ESTUDIANTE]**
+## 
+**Mildreth Alejandra Diaz Polo**
 
 ---
 
