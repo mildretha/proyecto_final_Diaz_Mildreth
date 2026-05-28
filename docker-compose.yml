@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  jupyter-pyspark:
+    image: jupyter/pyspark-notebook:spark-3.5.0
+    container_name: proyecto_final_pyspark
+    ports:
+      - "8888:8888"   # Jupyter Lab
+      - "4040:4040"   # Spark UI
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - SPARK_OPTS=--driver-java-options=-Xms2g --driver-java-options=-Xmx4g
+    volumes:
+      - ./bloque1_eda:/home/jovyan/bloque1_eda
+      - ./bloque2_ml:/home/jovyan/bloque2_ml
+      - ./bloque3_nlp:/home/jovyan/bloque3_nlp
+      - ./data:/home/jovyan/data
+    mem_limit: 6g
+    command: >
+      bash -c "pip install pysentimiento transformers torch seaborn scikit-learn --quiet &&
+               start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
+
+  spark-master:
+    image: bitnami/spark:3.5.0
+    container_name: spark_master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+    ports:
+      - "8080:8080"   # Spark Master UI
+      - "7077:7077"   # Spark Master port
+
+  spark-worker:
+    image: bitnami/spark:3.5.0
+    container_name: spark_worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+    depends_on:
+      - spark-master
