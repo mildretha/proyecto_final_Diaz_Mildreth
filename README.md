@@ -77,11 +77,11 @@ proyecto_final_apellido_nombre/
 ├── reporte_ejecutivo.pdf
 ├── bloque1_eda/
 │   ├── bloque1_eda_apellido.ipynb
-│   └── (archivos auxiliares)
+│   
 ├── bloque2_ml/
 │   ├── bloque2_ml_apellido.ipynb
-│   └── (modelos guardados)
+│
 └── bloque3_nlp/
     ├── bloque3_nlp_apellido.ipynb
-    └── corpus.csv
+    
 ```
